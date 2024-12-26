@@ -1,0 +1,142 @@
+# Integrointi Pythonin ja Reactin välillä
+
+# Luo Backend Flaskilla
+
+# 1. Asenna Flask:
+# Varmista, että Flask on asennettu Python-ympäristöösi:
+# pip install Flask
+
+# 2. Luo Flask-sovellus:
+# Luo uusi tiedosto nimeltä app.py ja lisää seuraava koodi:
+
+from flask import Flask, jsonify
+import pandas as pd
+from google.cloud import firestore
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+
+# Firestore-asiakkaan alustaminen
+service_account_key_path = 'C:\Users\melih\Desktop\anturiprojekti\prj-mtp-jaak-leht-ufl-a50dabd764ca.json'
+project_id = 'prj-mtp-jaak-leht-ufl'
+db = firestore.Client.from_service_account_json(service_account_key_path, project=project_id)
+
+app = Flask(__name__)
+collection = 'kerabit'
+zones = {
+    'zone1': 'sensor_data_C631F5295273',
+    'zone2': 'sensor_data_C4D912ED63C6',
+    'zone3': 'sensor_data_C37E14567097'
+}
+
+@app.route('/api/data', methods=['GET'])
+def get_data():
+    all_data = []
+
+    for zone, sub_collection in zones.items():
+        sub_collection_ref = db.collection(collection).document(zone).collection(sub_collection)
+        docs = sub_collection_ref.stream()
+
+        for doc in docs:
+            doc_dict = doc.to_dict()
+            doc_dict['id'] = doc.id
+            doc_dict['zone'] = zone
+            all_data.append(doc_dict)
+
+    if not all_data:
+        return jsonify({"message": "Ei dataa löytynyt Firestoresta."}), 404
+
+    df = pd.DataFrame([{
+        'id': entry['id'],
+        'zone': entry['zone'],
+        'humidity': float(entry['humidity']),
+        'temperature': float(entry['temperature']),
+        'timestamp': entry['timestamp']
+    } for entry in all_data])
+
+    # Muutetaan timestamp datetime-muotoon
+    df['timestamp'] = pd.to_datetime(df['timestamp'])
+    df.sort_values('timestamp', inplace=True)
+    df.set_index('timestamp', inplace=True)
+
+    # Klusterointi
+    X = df[['humidity', 'temperature']]
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
+    kmeans = KMeans(n_clusters=3, random_state=0)
+    df['cluster'] = kmeans.fit_predict(X_scaled)
+
+    # Palautetaan DataFrame JSON-muodossa
+    return jsonify(df.to_dict(orient='records'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+# 3. Käynnistä Flask-sovellus: Suorita tämä komento terminaalissa.
+# python app.py
+
+
+
+# Luo Frontend Reactilla
+
+# 1. Jos sinulla ei ole valmista käyttöliittymää, luo uusi projekti komennolla:
+# npx create-react-app my-app
+# cd my-app
+
+# 2. Asenna Axios: Axios on kirjasto HTTP-pyyntöjen tekemiseen. Asenna se komennolla:
+# npm install axios
+
+# 3. Luo komponentti datan hakemiseen: Muokkaa src/App.js -tiedostoa seuraavalla koodilla:
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function App() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:5000/api/data');
+                setData(response.data);
+            } catch (error) {
+                console.error('Virhe datan hakemisessa:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return (
+        <div>
+            <h1>Sensoridata</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Zone</th>
+                        <th>Kosteus</th>
+                        <th>Lämpötila</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((item) => (
+                        <tr key={item.id}>
+                            <td>{item.id}</td>
+                            <td>{item.zone}</td>
+                            <td>{item.humidity}</td>
+                            <td>{item.temperature}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+export default App;
+
+# 4. Käynnistä React-sovellus: Suorita tämä komento erillisessä terminaalissa.
+# npm start
+
+# Yhteenveto
+# Nyt sinulla on Flask-backend, joka tarjoaa API-pisteen datan hakemiseen Firestoresta, sekä React-frontend, joka näyttää datan taulukossa. Varmista, että Flask-sovellus on käynnissä ennen kuin yrität käyttää React-sovellusta, jotta voit tehdä pyyntöjä backendille.

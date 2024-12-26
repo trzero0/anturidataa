@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "prj-mtp-jaak-leht-ufl",
+  "private_key_id": "a50dabd764ca8648cc81f8a1c6f23a08bcff490e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQClJKS9FpozQOUA\nKj6NA4M5ompGm9vpKUq3rmEI2YHbZFYbfhGfMip9Gs8CJUtu/8EvRJjevL0J3Me8\n2cZTcHZJSDBqyDYoDzsXTrMzuO/SMVh/FsXCjKNgCSh/Ff+hMdxDtZX0fxL3QIfx\nquQz9QFpcu+/KMWWHji/GZFY+UZTeT6ADFhTh2GVzqz5bzKn56bP955zR3u8KDzH\ndvA92kk3l9c3xZR02EJAWc6hr7PYIQPQmkH7RjTJeRZG/MCrDedns7nyB/LpBI2y\nRzxvb/Qox5nt2cXgFXHwWcnuvPuskGnOOjGaawAXy85V0cO2OU/kmAgfkiqjQQoY\ndzkzh3ClAgMBAAECggEADHdEZztO9wpRma5Wq+2FXkL5a5c60FzWqssN60LYolTD\n343n6yDjOQUzy06WOoyxoBg5GOvdh40kAl2xsp06lJlk1ulXld+2dHHd+vbIGvwG\nGTaBGvM4/ELHYjZ+e4Qdw3pa1YqycLnCjqEkL5wxl9c+VpX6Okom5Z1auIESnbIv\nZ0Q2kwOQHJsCtuJtC51F88GmA3Gzoq8Vo7+M96uKx8UddfnbHBx3koFUyIDi1hXn\n/pLoaCVbcFt+5q4OfIZe59wM4u/WtIxwpmk41978vUrAs2lmau4nQJc6nYfJVl9f\nq6ZP/G9N5plkPc5zn/SCeGVBPSWGVE5iGt6hh5rYQQKBgQDedxygCO6taTUTy+vB\n0hGt+OD4WH50um4ObkE3i5D834yU61W4Z8vkB7LG2u8dSxW6IDgus6Kkw6kqZvWI\nvY1rELs15Ll2qOwAnAWpSWj/3N5y4wr6d+qiFInkKg3SRB9YNkVQOBO1KVJ2boQ+\nW7vj+4REvJv0ICc/6tc1FCvR5QKBgQC+CXt7N6dw6kQe2yZXey3SvDEVDjH0Xt2x\ngdxYrh7Bbaz0RFtG3TmleZZ8g8TlT/cJlVL6mzpYuTmHgF2/y67+QfAHh8/UdK5m\n7kU8WHxP8KvhHBPh2A8rU8bvPNWd+oXlGjGBIACxYBaOhGp9fzlLlx+FLq7YdOBa\nvU63lG43wQKBgD/ZvBOKvMZ03dESxFXa70wZlKhy7cifAZuOtZU1r6WEnBrZ+L52\nvCR0uTEuAVdNB61mNfnhgRr9NX6AEpTuorpKERGE1l5iWWpLXaya71IQmKAs3ifJ\nZ0Sh1HnyQAlLmBt/aCGAFtf2Rj7LtZUYSzNCK1J3N+O3nsxPoPkREwqpAoGABdz5\nCFYxPlScAW+1gSF1yniv8vxbIjUDFgTxrXLB1Cn0Gh05y7frnWVg9TqDiqeq8Yq/\n4qeDZ1VfpwSY3+AC6ClUpIbWLLHk55wWWsRIIZdFVk6tdlxaK3YMPzlbReKC2wyx\n1lAMdWyHhaIkPvb7548kE9Ha5ybD/Ui18wgLVoECgYAkiDj9IsitHZaUb+OnyQB2\nB0XBlLV8wPQHa59Dxm3PwM31HJPHlJkSGp2szAKqMrgtkRnHsA8B9wys5w5JRYX/\ndnufMFVmNTHjeDvth+EkpgSmzTr2yMYCF8pPe8pWuKG+frVsM6nWSFNwOz657T9D\np1GPAH7zzDR30fwtlxmaZg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "kerabit-query@prj-mtp-jaak-leht-ufl.iam.gserviceaccount.com",
+  "client_id": "101292079228461541654",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kerabit-query%40prj-mtp-jaak-leht-ufl.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
