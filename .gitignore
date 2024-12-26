@@ -1,4 +1,3 @@
-# Logs
 logs
 *.log
 npm-debug.log*
@@ -23,5 +22,4 @@ dist-ssr
 *.sln
 *.sw?
 *.env
-/anturidata_web/server/util/pythonScripts/anturiPy/prj-mtp-jaak-leht-ufl-a50dabd764ca.json
-/anturidata_web/server/util/pythonScripts/anturiPy/.venv
+./anturiPy/prj-mtp-jaak-leht-ufl-a50dabd764ca.json

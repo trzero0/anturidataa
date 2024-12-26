@@ -1,16 +1,11 @@
 ## Sprint 2 Review
-
-Sprintissä käyttety aika: 66 tuntia
-
-Scrum master: Kaspar Tullus
-
-Trello Board Kuva, Sprint 2. 
+Trello Board Kuva, Sprint 2.
 ![image](https://github.com/user-attachments/assets/c2b596e2-13da-41ac-a4f7-a710ce17b364)
 
-Toisen sprintin tavoitteena oli analysoida antureista saatua dataa ja aloittaa käyttöliittymän suunnittelu. Saatiin tehtyä yksinkertaista analyysiä, vaikkakin sähköntuotanto jäi vielä analysoimatta.
+Toisessa sprintissä oli tavoitteena analysoida antureista saatua dataa ja alkaa suunnittelemaan käyttöliittymän toteutusta. Saimme tehtyä yksinkertaista analyysiä, mutta vielä jäi sähköntuotto analysoimatta.
 
 ![image](Images/averages.png)
-Kuvasta nähdään zonejen väliset keskiarvot lämpötilalle ja kosteudelle.
+kuvasta nähdään zonejen väliset keskiarvot lämpötilalle ja kosteudelle.
 
 ![image](Images/temp_curve.png)
 ![image](Images/hum_curve.png)
@@ -18,25 +13,25 @@ Kuvissa näkyvät lämpötilan ja kosteuden keski-arvot päivittäin
 
 ![Density Plot](https://github.com/user-attachments/assets/9440ac9a-f96b-45c9-8cb5-bb97341607e4)
 ![Density Plot temp](https://github.com/user-attachments/assets/8ab40016-cce4-4957-a425-a1f120ee19be)
-Kuvissa näkyy lämpötilan ja kosteuden arvojen jakauma.
+Kuvissa näkyy lämpötilan ja kosteuden arvojen jakauma
 
 ![image](Images/linear_reg.png)
 ![image](Images/dec_tree.png)
-
-Edettiin soveltamaan dataan koneoppimismalleja. Linear regression -mallia sovellettiin kosteusarvojen ennustamiseen kohtalaisin tuloksin, mallin osoittaessa lievää korrelaatiota. Decision tree -mallia tutkittiin puolestaan zonejen ennustamiseen. Malli ei ollut tutkimusiimin mielestä hyödyllinen, sillä 60 % accuracy -arvolla virheellisesti luokiteltuja oli edelleen turhan paljon.
+Kokeilimme myös soveltaa dataan koneoppimismalleja. Kokeilimme saisiko linear regressiolla ennustettua kosteuden arvoja, mutta tulokset jäivät jokseenkin kohtalaisiksi. Mallin perusteella jotain korrelaatiota. Myös decicion treetä kokeiltiin, jos sillä pystyisi ennustamaan zoneja, mutta 60% accuracyllä ei malli näillä parametreilla ole mitenkään järkevä.
 
 ### Käyttöliittymän yhteys KNIME palvelimelle
 
-[Anaconda-ecosysteemi](https://www.anaconda.com/) ladattiin, jotta KNIME-palvelinta voitiin testata käyttöliittymän kanssa. Se mahdollistaa erilaisten pakettien lataamisen KNIMEen, joita voi hyödyntää muunmuassa Python-koodinoodeissa.
-KNIMEssä tiedot saatiin käyttöliittymään hakemalla dataa Google Cloud Firestoresta Python-noodia käyttäen. Python-noodissa data muunnettiin "Kino"-outputiksi, joka voitiin puolestaan lähettää analyysinoodeihin. Analyysinoodien käsittelyn jälkeen kaikki tulokset lähetettiin uudelle Python-noodille, joka lähetti POST-kutsulla tiedon ("Tulokset") Express-palvelimelle.
+Jotta kaikki toimisi käyttöliittymän kanssa, piti ladata [Anaconda-ecosysteemi](https://www.anaconda.com/), jonka avulla saatiin ladattua KNIMEen erilaisia paketteja, joita voi käyttää Python-koodinodessa KNIMEssä.
+Knimessä saatiin tiedot käyttöliittymään hakemalla dataa Google Cloud Firestoresta Python-nodella. Python-nodessa data muunnettiin "Kino"-outputiksi, joka voitiin lähettää analyysinodeihin. Analyysinodejen jälkeen kaikki tulokset lähetettiin uudelle Python-nodelle, joka lähetti POST-kutsulla tiedon ("Tulokset") Express-serverille.
 ![image](https://github.com/user-attachments/assets/7dca5373-7e99-4408-94a6-8cdc337431c7)
 
-Express-palvelin vastaanotti kutsun, myöhemmässä versiossa koitetaan purkaa tieto kutsusta ja tulostaa se käyttöliitymään. Tässä versiossa testattiin vain, että kutsu saapui perille Knimen sisältä "LocalHost"-palvelimelle.
+Express-serveri vastaanotti kutsun, myöhemmässä versiossa koitetaan purkaa tieto kutsusta ja tulostaa se käyttöliitymään. Tässä versiossa testattiin vain, että kutsu saapui perille Knimen sisältä "LocalHost"-serverille.
 
-Tiimi tutki, paljonko KNIME-palvelimen ylläpito maksaisi. Tultiin päätelmään, että jos ohjelmaa tarvitaan suurelle määrälle käyttäjiä, 35000 euroa/vuosi maksava "Knime Business Hub" -paketti olisi kannattavin. Mikäli käyttäjiä on vähän, 100 euroa kuukaudessa maksava "Team-plan" olisi sopivampi. Analyysin käynnistäminen "Team-plan" -sopimuksella maksaisi 0.10 euroa/minuutti, ja Workflow pyörii hitaammin, mitä enemmän dataa se hakee. Datan ollessa paljon, workflown hinta voi olla mittava.
+Myös tutkittiin paljonko maksaa KNIME-server, Tuloksena saatiin että jos ohjelma valmistetaan isompaan käyttöön kannatta otta "Knime Business Hub" Paketti joka maksaa 35.000 euroa/vuosi.
+Mutta jos on pienempi käyttäjä määrä, niin kannattaa maksaa "Team-plan" jonka hinta on 100 euroa kuukaudessa. Jos halutaan käynnistää analyysi ("Team-plan") sopimuksella "Workflow" Knimessä, se tulee maksamaan 0.10 euroa per minutti kun se workflow pyörii. Workflow pyörii hitaammin mitä enemmän dataa se hakee, eli jos data on iso niin workflown hinta voi nousta korkealle.
 ![image](https://github.com/user-attachments/assets/cb3c9b25-7e39-49c4-b030-08c9b80aee4c)
 
-Knimen suunnitelmien hinnat näkyvät sivustolla: https://www.knime.com/knime-hub-pricing
+Knimen suunitelma hinnat näkyvät sivustossa: https://www.knime.com/knime-hub-pricing
 
 ### Käyttöliittymän suunnittelu
 
@@ -71,7 +66,7 @@ Kuvissa näkyy:
 - **Lineaarinen regressio: Kosteus vs Lämpötila**  
   Regressiosuoran R²-arvo: `0.67`, kun Knimellä saavutettiin `0.7`.
 
-Käytettiin seuraavia Python-kirjastoja:
+käytettiin seuraavia Python-kirjastoja:
 
 - **pandas**: Datan käsittelyyn ja esikäsittelyyn
 - **numpy**: Matemaattisiin laskutoimituksiin
@@ -83,4 +78,5 @@ Käytettiin seuraavia Python-kirjastoja:
 Tulokset olivat lähellä KNIME:llä saatuja, mutta eroavaisuudet olivat helposti havaittavissa. Esimerkiksi pisteet eivät olleet täysin samoilla kohdilla.
 
 ## [Seuraava Sprint](SprintReview3.md)
+
 ## [Sprintit](SprintList.md)
