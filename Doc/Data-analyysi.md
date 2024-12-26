@@ -91,7 +91,7 @@ Käytetään samaan tyyliin Regression learner ja Prediction -noodeja. Lopuksi m
 
 ![image](Images/Analyysi/image20.png)
 
-Kun verrataan saatuja tuloksia Linear regression -mallin tuloksiin, saadaan Polynomial regression -mallin avulla hieman parempia tuloksia. R^2 arvo on 0.67, joten malli selittää noin 67% sähköntuoton varianssista. Mean absolute error ja Mean squared error myös ovat pienempiä, joka viittaa parempaan tarkkuuteen. Kuitenkin tämäkin malli jättää vielä paljon selittämättä.
+Kun verrataan saatuja tuloksia Linear regression -mallin tuloksiin, saadaan Polynomial regression -mallin avulla hieman parempia tuloksia. R^2 arvo on 0.67, joten malli selittää noin 67% sähköntuoton varianssista. Mean absolute error ja Mean squared error myös ovat pienempiä, joka viittaa parempaan tarkkuuteen. Kuitenkin tämäkin malli jättää vielä paljon selittämättä (KOMMENTTI: esim. mitä?)
 
 
 ## Clustering analyysi ja anomaly detection
@@ -209,7 +209,6 @@ Korkeilla lämpötiloilla kosteus on alhaisempaa. Tämän analyysin perusteella 
 ### Autoregressive Models (ARIMA) Time-series
 
 ![image2](Images/Analyysi/image45.png)
-
 Viherkaton ennustus
 
 Viherkaton ennustuksesta nähdään, että viherkaton datan 'log-likelihood' on korkea, mikä tarkoittaa, että data soveltuu hyvin ARIMA-analyysiin. Analyysistä havaitaan, että on melko suuri todennäköisyys sähköntuotannon nousulle seuraavina päivinä elokuussa.
@@ -248,9 +247,7 @@ Sähkötuotannon ennustuksia normaalille katolle 12.8-21.8
 Oikeita sähkötuotannon oikeita arvoja normaalille katolle 12.8-21.8
 
 
-## Yhteenveto analyyseistä
 
-Tehtyjen tutkimusten perusteella havaittiin, että kosteus ja lämpötila vaikuttivat selkeästi sähköpaneelien sähköntuottoon. Viherkaton ja normaalin katon välillä ei todettu merkittäviä eroja, joita oltaisiin voitu selittää pelkästään katon materiaalien eroilla. Tutkimustulokset eivät olleet riittävän luotettavia kattojen olosuhteiden ollessa tarkastellulla aikavälillä liian erilaiset. Tietojen mukaan viherkatolla oli poikkeavat ympäristöolosuhteet kastelun vuoksi, mikä heikentää sen analyysitulosten verrattavuutta muihin kattoihin. Parempien ennusteiden tekemiseksi tarvittaisiin enemmän tietoa olosuhteista, sekä pidemmän aikavälin dataa.
+## Yhteenveto
 
-## [Seuraava kappale: Data-analyysi Pythonilla](PythonAnalyysi.md)
-## [Takaisin etusivulle](../README.md)
+Tehtyjen tutkimusten perusteella havaittiin, että kosteus ja lämpötila vaikuttivat selkeästi sähköpaneelien sähköntuottoon. Lisäksi viherkaton ja normaalin katon välillä ei todettu merkittäviä eroja, joita oltaisiin voitu selittää pelkästään katon materiaalien eroilla. Parempien ennusteiden tekemiseksi tarvittaisiin enemmän tietoa olosuhteista, sekä pidemmän aikavälin dataa. Tutkimustulokset eivät olleet riittävän luotettavia kattojen olosuhteiden ollessa tarkastellulla aikavälillä liian erilaiset. Tietojen mukaan viherkattoa  kasteltiin epäsäännöllisesti, mikä teki kosteusarvoista ja muutoinkin viherkaton analyyseistä epätarkkoja.

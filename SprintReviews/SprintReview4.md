@@ -1,7 +1,6 @@
 ## Sprint 4 Review
 
 Sprintissä käytetty aika: 76 tuntia
-
 Scrum master: Mikko Tanhola
 
 Neljännessä sprintissä oli tavoitteena tehdä lisää analyysiä käyttämällä Time-Series analysis ,Predictive Modeling analysis, Statistical Hypothesis Testing analysis.

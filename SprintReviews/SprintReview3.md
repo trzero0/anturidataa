@@ -1,7 +1,6 @@
 ## Sprint 3 Review
 
 Sprintissä käytetty aika: 64 tuntia
-
 Scrum master: Muhammed Özturk
 
 Kolmannessa sprintissä oli tavoitteena jatkaa MOCA analyysia, PCA analyysia, selkeyttää viherkaton datan eroavaisuuksia, sekä aloittaa REACT sivun tekeminen aikaisempien suunnitelmien perusteella.
@@ -24,7 +23,7 @@ Tehtiin React-kirjastolla ja TypeScript ohjelmointikielellä ensimmäinen versio
 
 Kalenteri elementti käyttää **React-date-range** -kirjastoa. Kalenteri näyttää kaksi kuukautta vierekkäin, jotta käyttäjä voi helposti valita ajanjakson laajalta aikaväliltä. Päivämäärät voi valita alusta ja lopusta, minkä jälkeen käyttöliittymä lähettää valitut päivämäärät muuhun logiikkaan kuvaajia varten. Kalenteri elementti ei vastaa vielä lopullista versiota.
 
-Käyttöliittymässä on kaksi erillistä monivalintalaatikkoa, joissa käyttäjä voi valita zone-alueen ja sen muuttujat (esim. kosteus ja lämpötila). Monivalintalaatikko elementit käyttävät **React-select** -kirjastoa.
+Käyttöliittymässä on kaksi erillistä monivalintalaatikkoa, joissa käyttäjä voi valita zone-alueen ja sen muuttujat (esim. kosteus ja lämpötila). Monivalintalaatikko elementit käyttävät **React-select** -kirjastoa. Parannuksia monivalintalaatikoihin tehdään seuraavassa sprintissä.
 
 ### Multiblock component analyysi pythonilla
  

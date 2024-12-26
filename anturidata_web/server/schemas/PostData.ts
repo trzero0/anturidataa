@@ -2,36 +2,27 @@
 import mongoose from "mongoose"
 import resultData from "./resultData"
 
-//mongoose schema for storing analysis data to mongodb
 const { Schema } = mongoose
 
 const DataSchema = new Schema({
-    //name
     name: {
         type: String,
         required: true,
         default: "results"
     },
-    //sessionId for the user
     sessionId: {
         type: String,
         required: true,
     },
-    //timestamp
     createdAt: {
         type: Date,
         required: true,
         default: Date.now()
     },
-    //data as resultData object
     data: {
         type: [resultData.schema],
         required: true
     },
-    //graphtype to use for this data (set at frontend)
-    graphType: {
-        type: String,
-    }
     
 })
 

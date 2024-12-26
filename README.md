@@ -5,187 +5,139 @@ Jäsenet: Julia Köykkä, Atte Räisänen, Mikko Tanhola, Kaspar Tullus, Muhamme
 # Sisällysluettelo <a name="sisäl"></a>
 1. [Johdanto](#joh)
 2. [Projektivaatimukset](#vaat)
-3. [Kehitysmenetelmät](#kehmen)
+3. [Kehitysmenetelmät](#kehmen)\
+&nbsp;&nbsp;&nbsp;&nbsp;3.1 [Sprintti 1](#s1)\
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Sprintti 2](#s2)\
+&nbsp;&nbsp;&nbsp;&nbsp;3.3 [Sprintti 3](#s3)\
+&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Sprintti 4](#s4)\
+&nbsp;&nbsp;&nbsp;&nbsp;3.5 [Sprintti 5](#s5)\
+&nbsp;&nbsp;&nbsp;&nbsp;3.6 [Sprintti 6](#s6)\
+&nbsp;&nbsp;&nbsp;&nbsp;3.7 [Sprintti 7](#s7)
 4. [Projektin suunnittelu](#suun)\
-    4.1 [Data-analyysi](Doc/Data-analyysi.md)\
-    4.2 [Käyttöliittymä](Doc/Käyttöliittymä.md)\
-    4.3 [Data-analyysi Pythonilla](Doc/PythonAnalyysi.md)\
-    4.4 [Sovellusarkkitehtuuri ja käyttöliittymä](Doc/Käyttöliittymä.md)\
-    4.5 [Käyttöliittymä KNIMEllä](Doc/KäyttöliittymäKNIME.md)
-5. [Sovelluksen käyttöönotto](#otto)\
-    5.1 [Edellytykset](#edel)\
-    5.2 [Asennus](#asen)\
-    5.3 [Käyttöohje](#käyt)
-6. [Yhteenveto](#yht)\
-    6.1 [Haasteet](#haast)\
-    6.2 [Jatkokehitys](#jatko)\
-        &nbsp;&nbsp;&nbsp;&nbsp;6.2.1 [Käyttöliittymän jatkokehitys](#käytjat)\
-        &nbsp;&nbsp;&nbsp;&nbsp;6.2.2 [Data-analyysin parannuksia](#datjat)
+    4.1 [Data-analyysi](#analy)\
+    4.2 [Sovellusarkkitehtuuri](#sov)
+5. [Data-analyysi syventävästi](tulk)
+6. [Sovelluksen käyttöönotto](otto)\
+    6.1 [Edellytykset](#edel)\
+    6.2 [Asennus](#asen)\
+    6.3 [Käyttöohje](#käyt)
+7. [Testaus](#test)
+8. [Yhteenveto](#yht)
 
 ## Johdanto <a name="joh"></a>
-
 Projektin tavoitteena on tutkia aurinkopaneelien eroja analysoimalla antureiden dataa KNIME-ohjelmistolla ja Python-ohjelmoinnilla. Lisäksi pyritään toteuttamaan React-käyttöliittymä, jonka API yhdistyy Expressin avulla KNIME-palvelimeen. Käyttöliittymän avulla asiakas voi tarkastella dataa, esimerkiksi vertailemalla eri alueiden aurinkopaneelien kosteuden ja lämpötilan tasoja. Projektin aikataulutuksessa noudatetaan ketterää menetelmää ja hyödynnetään Trelloa.
 
-Projektissa käytetyt teknologiat:\
-[![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#),
-[![Express.js](https://img.shields.io/badge/Express.js-%23404d59.svg?logo=express&logoColor=%2361DAFB)](#),
-[![NodeJS](https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white)](#),
-[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#),
-[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff)](#),
-[![Firebase](https://img.shields.io/badge/Firebase-039BE5?logo=Firebase&logoColor=white)](#),
-[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-%234285F4.svg?logo=google-cloud&logoColor=white)](#),
-[![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?logo=mongodb&logoColor=white)](#),
-[![Anaconda](https://img.shields.io/badge/Anaconda-44A833?logo=anaconda&logoColor=fff)](#),
-[![Trello](https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=fff)](#),
-[![Figma](https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white)](#),
-KNIME analytics platform
 ## Projektivaatimukset <a name="vaat"></a>
 
 Pääasiallisena asiakasvaatimuksena oli toteuttaa data-analyysi asiakkaan palvelimelle tallennetulle datalle. Asiakasta kiinnosti erityisesti, kuinka kastellun viherkaton sähköntuoton anturidata poikkeaa valkopohjaisen ja mustapohjaisen katon anturidatasta. Opettajan suosituksesta vaatimuksena oli käyttää Pythonin lisäksi data-analysointiin erikoistunutta ohjelmistoa, jonka avulla data-analyysiä voidaan hahmottaa helpommin.
 
 Ohjelmistotuotannon opiskelijoina ryhmän projektivaatimuksena oli myös kehittää web-sovellus, jonka avulla data-analyysiä voidaan tarkastella. Sovellukselle ei kuitenkaan saatu tarkempia asiakasvaatimuksia.
 
-Sovelluksen edetessä projektin painopiste siirtyi Python-pohjaiseen data-analyysiin, koska KNIME-palvelimen analysointi osoittautui liian hintavaksi.
+Sovelluksen edetessä budjetointiin, se erikoistui Python-pohjaiseen data-analyysiin, sillä KNIME-palvelimen analysointi osoittautui liian resursseja kuluttavaksi.
 
 ## Kehitysmenetelmät <a name="kehmen"></a>
 
 Projektihallinnassa käytettiin ketterää Scrum-menetelmää. Aikaraja jaettiin kahden viikon jaksoihin, jotka määriteltiin sprintteinä. Kaikissa paitsi ensimmäisessä sprintissä oli Scrum-mestari, jonka tehtävänä on ylläpitää tehtävienhallintaa Trellossa. 
 
-Ketterään työskentelyyn kuuluu Scrum-palaverien aikatauluttaminen. Projektissa pidettiin palavereja tarpeen mukaan, pyrkien pitämään niitä vähintään sprinttien alussa ja lopussa. Projektin versiohallintatyökaluna käytettiin GitHub -etätietovarastoa.
+(lisää sen sujuvuudesta, haasteellista sairastuessa ja epäselvyyksien myötä jnejne)
 
-[Linkki työajanseurantaan](https://metropoliafi-my.sharepoint.com/:x:/g/personal/kaspart_metropolia_fi/EaOvk-hq3rlDtGvIea-mcjcBFBH6nMfs9GHBKZcvCcmovw)
+Ketterään työskentelyyn kuuluu Scrum-palaverien aikatauluttaminen. Projektissa pidettiin palavereja tarpeen mukaan, pyrkien pitämään niitä vähintään sprinttien alussa ja lopussa. 
 
-[Linkki yksityiskohtaisiin sprintti katsauksiin](SprintReviews/SprintList.md)
+Trello linkki
+
+Projektin versiohallintatyökaluna käytettiin GitHub -etätietovarasto.
+
+[Linkki työajanseurantaan](https://metropoliafi-my.sharepoint.com/:x:/g/personal/kaspart_metropolia_fi/EaOvk-hq3rlDtGvIea-mcjcByCtmNadYHdLlSF8qI84Jog?rtime=m9gjtOXa3Eg)
+
+### Sprintti 1 <a name="s1"></a>
+Aikataulu: 28.8 - 11.9
+
+Ensimmäisessä sprintissä päätavoitteina oli perustaa projektinhallinnan työkalut ryhmälle, sekä valita sopiva väline datan analysointiin. Projektinhallintaa varten luotiin GitHub, Discord ja Trello, ja analysointityökaluksi valittiin KNIME Analytics Platform. Aluksi tutustuttiin KNIMEn toimintaan ja arvioitiin sen soveltuvuutta projektin tarpeisiin. KNIMEn avulla voitiin analysoida kahden muuttujan välisiä vaikutuksia. Alustavat analyysit tehtiin testidatalla, koska varsinaiseen dataan ei ollut vielä saatu käyttöoikeuksia. Testidatasta ei myöskään löytynyt riittävästi taustatietoa esimerkiksi aurinkopaneelien käyttötarkoituksista tai odotetuista tuloksista.
+
+Ensimmäisessä analyysissa tutkittiin, kumpi aurinkopaneelin puolista tuotti enemmän sähköä. Testidatan rajoitusten vuoksi ilmiön taustasyitä ei voitu tarkasti määrittää. Toisessa analyysissä tarkasteltiin, vaikuttiko paneelin paikkatieto sähköntuottoon. Tulokset osoittivat, että paikkatiedon ollessa välillä 300–550 sähköntuotto pysyi tasaisena, mutta suuremmilla paikkatiedon arvoilla tuotanto alkoi vaihdella.
+
+Analysointiprosessia varten data haettiin Google Cloudista Python-koodilla ja muunnettiin JSON-muotoon KNIMEä varten. Python-koodia käytettiin KNIMEn Python -noodeissa, minkä mahdollistamiseksi asennettiin Anaconda. Anacondan avulla otettiin käyttöön tarvittavat Python-ympäristöt ja ladattiin tarvittavia paketteja Google Cloud -yhteyden muodostamiseksi.
+
+### Sprintti 2 <a name="s2"></a>
+Aikataulu: 12.9 - 26.9&nbsp;&nbsp;&nbsp;&nbsp; Scrum-mestari: Kaspar Tullus
+
+Toisessa sprintissä keskityttiin anturidatan analysointiin ja käyttöliittymän suunnittelun aloittamiseen. Sprintissä saatiin tehtyä yksinkertaista analyysiä, mutta sähköntuotannon analyysi jäi vielä kesken. Analysoinnissa tarkasteltiin zonejen lämpötilan ja kosteuden keskiarvoja sekä näiden arvojen jakaumaa. Lisäksi tutkittiin koneoppimismalleja, kuten lineaarista regressiota kosteuden ennustamiseen ja Decision tree -mallia zonejen ennustamiseen. Lineaarisen regression tulokset osoittivat lievää korrelaatiota, mutta Decision tree -malli osoittautui epätarkaksi, sillä 60 % tarkkuus ei ollut riittävä.
+
+KNIME-palvelimen ja käyttöliittymän välistä yhteyttä testattiin. Data haettiin Google Cloud Firestoresta ja käsiteltiin Python -noodien avulla. Tämän jälkeen analyysitulokset lähetettiin Express-palvelimelle POST-kutsuna, ja testattiin, että yhteys toimii. Lisäksi tutkittiin KNIME-palvelimen kustannuksia eri käyttäjämäärillä. Jos käyttäjiä olisi paljon, "Knime Business Hub" -paketti olisi taloudellisin vaihtoehto, mutta pienemmille käyttäjämäärille sopisi paremmin "Team-plan" -sopimus.
+
+Pythonilla tehtiin analyysi, jossa tarkistettiin, saadaanko samoja tuloksia kuin KNIME:llä. Käytössä olivat muun muassa kirjastot pandas, numpy, matplotlib, seaborn ja scikit-learn. Pythonilla saavutetut tulokset olivat samankaltaisia KNIME:llä saatuihin nähden, mutta pieniä eroavaisuuksia havaittiin. Esimerkiksi regressiosuoran R²-arvo oli Pythonilla 0.67, kun KNIME:llä se oli 0.7.
+
+Käyttöliittymän suunnittelussa valittiin ohjelmointikielet ja hahmoteltiin perustoiminnallisuuksia, kuten datan valinta, kuvaajan tyypin vaihtaminen ja datan ajanjakson muokkaaminen. Lisäksi suunniteltiin lisäominaisuuksia, kuten tulosten tallentaminen eri tiedostomuodoissa ja interaktiivinen datan tutkinta. Perustoiminnallisuuksia ja käyttöliittymän yleisilmettä hahmoteltiin Figmassa, ja sekvenssikaaviolla kuvattiin tyypillisiä käyttötapauksia.
+
+### Sprintti 3 <a name="s3"></a>
+Aikataulu: 26.9 - 11.10&nbsp;&nbsp;&nbsp;&nbsp; Scrum-mestari: Muhammed Özturk
+
+Kolmannessa sprintissä keskityttiin MOCA- ja PCA-analyysien jatkamiseen, viherkaton datan eroavaisuuksien selkeyttämiseen sekä React-pohjaisen käyttöliittymän kehittämisen aloittamiseen aiemmin tehtyjen suunnitelmien perusteella.
+
+KNIME:llä yhdistettiin sähköntuottodataa osaksi analyysiä. Datan rajoitukset, kuten lyhyt ajanjakso (heinä- ja elokuu) ja yksittäisten paneelien tietojen puuttuminen, heikensivät analyysin kattavuutta. Kattojen sähköntuotosta tarkasteltiin keskiarvoja. Tulokset osoittivat, että viherkatolla oli jonain päivinä parempi tuotto, mutta yleisesti ottaen kattojen tuotot olivat samankaltaisia. PCA-analyysissä klusteroitiin zonejen tietoja, mutta selkeitä eroja ei havaittu, sillä zonet eivät muodostaneet omia klustereitaan.
+
+Pythonilla toteutettiin multiblock component -analyysi käyttäen Partial Least Squares Regression (PLSRegression) -menetelmää, joka kuuluu scikit-learnin (sklearn.cross_decomposition) kirjastoihin. Analyysissä käytettiin selittävinä muuttujina kosteuden ja lämpötilan arvoja (X) ja riippuvana muuttujana kosteutta placeholderina (Y). Tämä analyysi tuki sprintin päätavoitetta syventää ymmärrystä muuttujien välisistä yhteyksistä.
+
+Käyttöliittymän kehittämisessä luotiin ensimmäinen versio React-kirjastolla ja TypeScript-ohjelmointikielellä. Käyttöliittymässä toteutettiin kalenterielementti, joka käyttää React-date-range -kirjastoa. Kalenterin avulla käyttäjä voi valita ajanjakson, jolta dataa haetaan, mutta se on vielä alustava ratkaisu. Lisäksi lisättiin monivalintalaatikoita, joiden avulla käyttäjä voi valita zone-alueen ja sen muuttujat, kuten kosteuden ja lämpötilan. Monivalintalaatikot toteutettiin React-select -kirjastolla, ja niitä kehitettiin seuraavassa sprintissä.
+
+### Sprintti 4 <a name="s4"></a>
+Aikataulu: 21.10 - 4.11&nbsp;&nbsp;&nbsp;&nbsp; Scrum-mestari: Mikko Tanhola
+
+Neljännessä sprintissä keskityttiin analyysien syventämiseen käyttämällä aikasarja-analyysiä (Time-Series), ennakoivaa mallinnusta (Predictive Modeling) ja tilastollisten hypoteesien testausta (Statistical Hypothesis Testing). Lisäksi käyttöliittymään tehtiin edistysaskelia tiedon haun ja lähetyksen osalta.
+
+KNIME:llä toteutettiin aikasarja-analyysiä hyödyntämällä Multivariate Time-Series Forecasting -mallia ja ARIMA-mallia. Ennusteissa tarkasteltiin kosteuden ja lämpötilan vaikutuksia viherkattoon ja normaalikattoon.
+
+Multivariate Time-Series Forecasting -analyysin perusteella viherkaton kosteustasoilla ja lämpötiloilla oli vähemmän vaikutusta sähköntuottoon kuin normaalikaton vastaavilla muuttujilla. Viherkatto näytti olevan tehokkaampi sähköntuotossa, mutta tulosta ei voitu pitää lopullisena monien huomioon ottamatta jääneiden tekijöiden vuoksi. ARIMA-mallilla tehty ennustus viherkaton osalta osoitti korkeaa log-likelihood-arvoa, mikä viittasi mallin sopivuuteen. Ennuste antoi suurta todennäköisyyttä sähköntuoton nousulle seuraavien päivien aikana. Normaalikaton ennusteessa näkyi niin ikään tuotannon nousua elokuussa, mutta sen jälkeen todennäköisemmin laskua. Molemmissa tapauksissa ennusteet tehtiin 95 %:n luottamusvälillä.
+
+Pythonilla aikasarja-analyysiä syvennettiin seuraavasti:
+- Visualisoitiin lämpötilan ja kosteuden muutoksia ajan suhteen eri zoneissa kausivaihtelujen havainnollistamiseksi.
+- Laskettiin päivittäisiä keskiarvoja kosteudelle ja lämpötilalle, mikä toi esille pidemmän aikavälin muutoksia.
+- Ennustettiin lämpötilan kehitystä ARIMA-mallilla valituille zoneille, tarjoten näkymää tuleviin lämpötilatrendeihin.
+
+Käyttöliittymässä saavutettiin edistystä POST- ja GET-pyyntöjen avulla. KNIMEstä lähetettiin tuloksia Python-noden kautta Express-palvelimelle, jossa POST-pyynnöt vastaanotettiin. Tiedot aiotaan tulevissa sprinteissä tallentaa tietokantaan, jotta ne voidaan hakea GET-pyynnöillä. Käyttöliittymän ulkoasulle kehitettiin responsiivisempi CSS.
+
+Sprintti antoi merkittävää lisätietoa kattojen välisistä eroista ja valmisteli käyttöliittymää tulevia toiminnallisuuksia varten.
+
+### Sprintti 5 <a name="s5"></a>
+Aikataulu: 1.11 - 15.11&nbsp;&nbsp;&nbsp;&nbsp; Scrum-mestari: Atte Räisänen
+
+Sprintin 5 keskeinen tavoite oli käyttöliittymän kehittäminen ja sen integrointi backend-toiminnallisuuksiin sekä analyysitulosten käsittelyyn. Sprintin aikana selvitettiin sopivat grafiikat analyysien visualisointiin, datan vastaanottaminen ja lähettäminen käyttöliittymän kautta, sekä kehitettiin tietokantaintegraatiota.
+
+Pythonilla suoritetut analyysit järjestivät sensoridatan aikajärjestykseen ja sovittivat siihen monipuolisia analyysimalleja. Esimerkiksi ARIMA-mallilla ennustettiin lämpötilan kehitystä, kun taas PCA-analyysi tunnisti tärkeimmät pääkomponentit datassa. Tulokset tallennettiin JSON-muotoon sekä tietokantaan, mikä mahdollistaa niiden tehokkaan jatkokäsittelyn ja visualisoinnin käyttöliittymässä.
+
+Käyttäjän valitsemat parametrit saatiin toimivasti lähetettyä käyttöliittymästä POST-pyynnöllä Pythonille, joka suorittaa tarvittavat analyysit, kuten ARIMA-mallinnuksen, PCA:n ja K-Means-klusteroinnin. Tulokset palautetaan käyttöliittymään ja tallennetaan MongoDB-tietokantaan, josta niitä voidaan hakea GET-pyynnöillä myöhempää tarkastelua varten. SessionID-järjestelmän avulla varmistettiin, että käyttäjäkohtaiset analyysit pysyvät yksityisinä ja helposti saatavilla.
+
+### Sprintti 6 <a name="s6"></a>
+Aikataulu: 18.11 - 29.11&nbsp;&nbsp;&nbsp;&nbsp; Scrum-mestari: Julia Köykkä
+
+tiivistelmä sprint 6
+
+### Sprintti 7 <a name="s7"></a>
+Aikataulu: &nbsp;&nbsp;&nbsp;&nbsp; Scrum-mestari: 
+tiivistelmä sprint 7
+
+[Linkki erillisiin sprintti katsauksiin](SprintReviews/SprintList.md)
 
 ## Projektin suunnittelu <a name="suun"></a>
+### Data-analyysi <a name="analy"></a>
+Ei yksityiskohtia, vasta miten aloittaa
 
-### [Data-analyysi](Doc/Data-analyysi.md)
+### Sovellusarkkitehtuuri <a name="sov"></a>
+Kaaviot rakenteesta ja selitys
 
-### [Käyttöliittymä](Doc/Käyttöliittymä.md)
-
-### [Data-analyysi Pythonilla](Doc/PythonAnalyysi.md)
-
-### [Sovellusarkkitehtuuri ja käyttöliittymä](Doc/Käyttöliittymä.md)
-
-### [Käyttöliittymä KNIMEllä](Doc/KäyttöliittymäKNIME.md)
+## Data-analyysi syventävästi <a name="tulk"></a>
+Loput, jaa osiin
 
 ## Sovelluksen käyttöönotto <a name="otto"></a>
-
+### Edellytykset <a name="edel"></a>
+Mitä tarvitsee että toimii (puuttuvat tiedostot jne)
 ### Asennus <a name="asen"></a>
-
-Ensimmäisenä pitää asentaa Node.js ja Python asennusohjeet / asennus löytyvät näiltä sivulta:
-
-[Node.js](https://nodejs.org/en)
-
-[Python](https://www.python.org/downloads/)
-
-#### Pakettien asennus (IntelliJ IDEA)
-Ensimmäisenä meijän pitää mennä projektin juureen terminaalissa:
-````bash
-cd ./anturidata_web
-````
-Kun ollaan projektin juuressa pitää ladata paketit package.json tiedostosta:
-
-````bash
-npm install
-````
-Tämän jälkeen pitää mennä server kansioon:
-````bash
-cd ./server
-````
-Ja ladata serverin paketit package.json tiedostosta:
-````bash
-npm install
-````
-Kaiken tämän jälkeen pitää mennä takaisin projektin juureen ja luoda uusi .env tiedosto joka sisältää seuraavat tiedot:
-````env
-SESSION_SECRET= (session salasana, suositellaan generoimaan SHA256 hashillä)
-COOKIE_AGE= (Session cookie ikä, eli kauanko keksi jää käyttäjän koneelle/selaimeen)
-MONGO_DB_URI= (MongoDB URI) // tämä voi olla myös firebasen osoite jos kaikki tiedot löytyvät firebasesta jatkokehityksessä mutta tällä hetkellä se voi olla oma mongodb tietokanta
-````
-Kun kaikki on tehty oikein pitää mennä python koodi kansioon ja asentaa kaikki paketit ja .venv environmentti johon myös asenetetaan kaikki tarvittavat paketit:
-````bash
-cd ./anturidata_web/server/util/pythonScripts/anturiPy
-pip install -r requirements.txt
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-````
-Kun kaikki on asennettu oikein pitää mennä takaisin projektin juureen ja käynnistää client ja server:
-
-Client:
-````bash
-cd ./anturidata_web
-npm run dev
-````
-
-Server:
-````bash
-cd ./anturidata_web/server
-npm run dev
-````
-Nyt sovellus on käynnissä ja voit mennä selaimella osoitteeseen http://localhost:5173
-
-Server puolen tiedot löytyvät osoitteesta http://localhost:3001/results
-
-Server puolen sessioIDt löytyvät osoitteesta http://localhost:3001/track-session
-
-
+Miten asennetaan
 ### Käyttöohje <a name="käyt"></a>
+Miten käytetään
 
-Kun kaikki on asennettu oikein ja sovellus on käynnissä, voit mennä selaimella osoitteeseen http://localhost:5173
+## Testaus <a name="test"></a>
+Onko meillä
 
-Käyttöliitymässä on seitsemän eri valikkoa:
-1. Käytä JSON tiedostoa - Täällä voit ladata JSON tiedoston joka sisältää anturidataa (HUOM! ei toimi tällä hetkellä, idea jatkokehitykseen)
-2. Hae dataa aikaväliltä - Täällä voit hakea dataa tietystä aikavälistä
-3. Ensimmäinen vertailtava alue - Täällä voit valita ensimmäisen alueen jota haluat vertailla
-4. Toinen vertailtava alue - Täällä voit valita toisen alueen jota haluat vertailla
-5. Ensimmäinen vertailtava anturi - Täällä voit valita ensimmäisen anturin jota haluat vertailla
-6. Toinen vertailtava anturi - Täällä voit valita toisen anturin jota haluat vertailla
-7. Analyysin tyyppi - Täällä voit valita minkä tyyppisen analyysin haluat tehdä
-
-![anturiOhje1.PNG](Doc/Images/Käyttöliittymä/anturiOhje1.PNG)
-
-Painamalla Lähetä valinnat käynnistät analyysi prosessin ja saat tulokset näkyviin graafisessa muodossa parin minuutin sisällä.
-
-Seuraavassa kuvassa näkyy analyysi historia, painamalla "Data1,Data2 jne." nappia voit tarkastella tietyn analyysin tuloksia jotka olet tehnyt.
-
-![anturiOhje2.PNG](Doc/Images/Käyttöliittymä/anturiOhje2.PNG)
-
-Kun nappia on painettu tulee graafi näkyviin ja voit tarkastella sitä.
-
-![anturiohje3.PNG](Doc/Images/Käyttöliittymä/anturiohje3.PNG)
-
-Graafissa voi valita minkälaista graaphia haluaa käyttää ja voit myös ladata graafin kuvana.
-
-Graafin lataaminen kuvaksi tapahtuu kuvassa ympäröidyn kohdan kautta.
-
-![anturiohje4.PNG](Doc/Images/Käyttöliittymä/anturiohje4.PNG)
-
-Graafin tyypin valinta tapahtuu seuravassa kuvassa ympäröidyn kohdan kautta.
-
-![anturiOhje5.PNG](Doc/Images/Käyttöliittymä/anturiOhje5.PNG)
-
-Uuden analyysin tekeminen tapahtuu painamalla valitsemalla uudet arvot ja painamalla Lähetä valinnat.
-
-Muista että analyysi voi kestää muutaman minuutin.
-
-## Yhteenveto <a name="yht"></a>
-
-Projekti onnistui, vaikkakin joitakin asioita jäi kesken. Aloitus oli hidasta vaatimusten puutteesta johtuen, mutta tehtävälista saatiin hyvin kasaan, erityisesti data-analyysin osalta. Projektissa on pystytty analysoimaan juuri niitä keskeisiä asioita, ja tiimi on tullut selkeään lopputulokseen, ettei kattojen eroja voida selittää materiaalien eroilla. Datan tarkasteltavuutta käyttöliittymässä voisi parantaa.
-
-### Haasteet
-
-Tiimillä ei ollut aiempaa yhteistyökokemusta, mikä monesti saattaisi nostaa kynnystä kommunikoida. Tästä huolimatta onnistuttiin pitämään aktiivisesti kommunikaatiota yllä. Sovelluksen vastuualuiden jakaminen monelle henkilölle oli haastavaa, sillä selkeitä asiakasvaatimuksia ei ollut. Projektinjäsenten keskuudessa esiintyi useita sairaustapauksia, jotka vaikuttivat projektin etenemiseen. Erityisesti projektinhallinnan ylläpitäminen ja aktiivisena pitäminen oli vaikeaa sairaustapauksien aikana. Samojen komponenttien parissa yhtäaikaisesti työskentely oli haasteellista virhetilanteissa.
-
-### Jatkokehitys <a name="jatko"></a>
-
-#### Käyttöliittymän jatkokehitys <a name="käytjat"></a>
-
-Käyttöliittymään jäi eniten kehittämisen varaa. Jatkokehityksessä sovellusta tulisi testata mobiilikokoisena enemmän, sillä responsiivisuus kuvaajien kanssa ei ole täysin hiottu. Tyylittelyt, kuten `ChartComponent.tsx`-esimerkissä [Käyttöliittymä](Doc/Käyttöliittymä.md) osiossa mainittu, kannattaa upottaa käytettyihin kuvaajiin, ja kuvaajan muuttujakentät tulisi tehdä dynaamisesti mukautuviksi. 
-
-Kuvaajatulosten tallennus eri muodoissa, kuten PDF, JSON tai CSV, on myös tärkeä kehityskohde. Erinomainen idea olisi generoida automaattisesti koneoppimisen avulla lyhyitä tekstikuvauksia kuvaajista, jotka auttaisivat käyttäjää ymmärtämään, kuinka kuvaajaa tulkitaan.
-
-#### Data-analyysin parannuksia <a name="datjat"></a>
-
-Tarkempien ennusteiden laatimiseksi tarvitaan enemmän tietoa olosuhteista sekä pidempiaikaisia mittauksia. Sähköntuotantodatan poikkeuksellisten (matalien ja korkeiden) päivien korostaminen ja niiden tuominen tarkempaan tarkasteluun olisi myös hyödyllistä.
+## Projektin yhteenveto <a name="yht"></a>
+t

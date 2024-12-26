@@ -1,10 +1,6 @@
-# Data-analyysi Pythonilla
-
 # Aikasarja-analyysi ja Koneoppimismenetelmät
 
 Tässä dokumentaatiossa esitellään prosessi, jossa analysoimme aikasarjadataa kolmelta eri vyöhykkeeltä (`zone1`, `zone2`, ja `zone3`). Datan käsittelyssä käytetään useita koneoppimismenetelmiä, kuten klusterointia (K-Means), pääkomponenttianalyysiä (PCA), lineaarista regressiota, PLS-regressiota, sekä ARIMA-mallia ennusteiden tekemiseksi. Tavoitteena on ymmärtää paremmin lämpötilan ja kosteuden välistä yhteyttä ja tehdä ennusteita.
-
-Dokumentaatioon datayhteyden alustamiseen ja käsittelyyn Pythonilla pääset [tästä](PythonJsoniksi.md).
 
 ## Käytetyt Työkalut
 
@@ -144,9 +140,9 @@ plt.show()
 PCA-menetelmällä voidaan visualisoida datan tärkeimmät piirteet kahdessa ulottuvuudessa, mikä auttaa ymmärtämään datan rakennetta ja erottamaan vyöhykkeet toisistaan.
 
 
+
 <img width="744" alt="PCA" src="Images/Python/PCA.png">
 
-Kuvassa havainnollistetaan zonien jakautumista eri sijainteihin. PCA- ja PLS-menetelmillä saadut pisteiden sijainnit ovat yhteneviä, mikä todennäköisesti johtuu siitä, että analysoitu data ei ole täysin luotettavaa.
 
 ---
 
@@ -222,23 +218,10 @@ ARIMA-malli on erittäin tehokas aikasarjamallinnuksessa, jossa ennustetaan seur
 Aikasarja ennuste kaikille zoneille
 Lämpötila - Aika
 ![image](Images/Python/Ennuste.png)
-
 Kosteuden ja lämpötilan Aikasarja
 ![image](Images/Python/Aikasarja.png)
-
-Molemmat kuvat tarjoavat mahdollisuuden tarkastella ennusteita reaaliaikaisesti, jolloin zonet on jaoteltu selkeästi eri alueille. Tämä selkeys helpottaa ennustemallien tulosten visualisointia ja tulkintaa. Käyttäjä voi tarvittaessa zoomata tarkastellakseen yksityiskohtia lähempää, ja analyysit voi myös tallentaa myöhempää analysointia varten. Tiedostojen tallennusominaisuus varmistaa, että tärkeät havainnot ovat helposti saatavilla tulevaisuudessa.
-
 ### Osa 9: **Yhteenveto ja Tulevaisuuden Suunnitelmat**
 ![image](Images/Python/KOKO.png)
-
-Tässä nähdään toteutetut erilaiset analyysit, kuten hajontakaavio, histogrammi, lineaarinen regressio ja klusterointi.
-
-- Hajontakaavio visualisoi muuttujien väliset suhteet ja auttaa tunnistamaan mahdollisia trendejä tai poikkeamia. Se tarjoaa selkeän kuvan siitä, miten data jakautuu ja miten eri muuttujat vaikuttavat toisiinsa.
-- Histogrammi näyttää muuttujien jakautumisen ja auttaa arvioimaan datan tiheysjakaumaa. Sen avulla voidaan tunnistaa esimerkiksi normaalijakauman kaltaisia piirteitä tai poikkeuksia.
-- Lineaarinen regressio esittää selkeän suhteen riippuvan ja selittävän muuttujan välillä. Tämä malli voi auttaa ennustamaan arvoja ja arvioimaan muuttujien välistä lineaarista yhteyttä.
-- Klusterointi puolestaan ryhmittelee datan samankaltaisiin osiin, mikä voi paljastaa piileviä rakenteita ja auttaa ymmärtämään, miten eri havainnot liittyvät toisiinsa.
-
-Nämä analyysit tarjoavat kattavan näkymän datan rakenteesta ja mahdollistavat syvemmän ymmärryksen eri muuttujien välisistä suhteista ja jakautumisista.
 
 ## Yhteenveto
 
@@ -246,16 +229,8 @@ Tässä projektissa olemme tutkineet kosteuden ja lämpötilan välistä yhteytt
 
 - Parantaa mallin tarkkuutta lisäämällä muuttujia.
 - Tutkia syvempää kausivaihtelun vaikutusta lämpötilaan ja kosteuteen.
-- Saada datan omistajalta parempaa dataa
-- muuttaa tekstien paikkoja
-- saada kaikki analyysit samaan ikkunaan
 
 ---
 
 Linkki koko koodiin 
 https://github.com/Jukaiku/anturidatainno/tree/Backend_Python/anturiPy
-
-## [Python Jsoniksi](PythonJsoniksi.md)
-## [Edellinen kappale: Data-analyysi](Data-analyysi.md)
-## [Seuraava kappale: Sovellusarkkitehtuuri ja käyttöliittymä](Käyttöliittymä.md)
-## [Takaisin etusivulle](../README.md)

@@ -1,7 +1,6 @@
 ## Sprint 2 Review
 
 Sprintissä käyttety aika: 66 tuntia
-
 Scrum master: Kaspar Tullus
 
 Trello Board Kuva, Sprint 2. 

@@ -1,7 +1,6 @@
 ## Sprint 5 Review
 
 Sprintissä käytetty aika: 99 tuntia
-
 Scrum master: Atte Räisänen
 
 Sprintissä 5 keskityttiin erityisesti käyttöliittymän kehitykseen. Työn aikana selvitettiin muun muassa seuraavat asiat:

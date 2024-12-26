@@ -1,25 +1,24 @@
 import mongoose from "mongoose"
 
-//mongoose schema for data and its variables
 const { Schema } = mongoose
 
 const resultDataSchema = new Schema({
-    //dates to analyse
     dates: {
         type: [String],
     },
-    //zones to analyse
     zones: {
         type: [String],
     },
-    //variables such as temperature or humidity
     variables: {
         type: [String]
     },
-    //data gotten from the analysis
+    analysisType: {
+        type: [String]
+    },
     jsonData:{
         type: [Object]
     }
+    
 })
 
 

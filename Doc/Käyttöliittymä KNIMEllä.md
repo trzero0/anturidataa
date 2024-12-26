@@ -1,5 +1,4 @@
-# Käyttöliittymä KNIMEllä (Visio / Idea / Testi)
-
+# KNIME:llä toteutettu käyttöliittymä (Visio / Idea / Testi)
 ## Käyttöliittymän toteutus
 Käyttöliitymä on mahdollista tehdä myös "Knime Servereillä" jossa käytetään Anaconda ympäristöä.
 
@@ -15,8 +14,7 @@ Kuvassa on esitelty seuraavat nodet:
   * Tämä node on tärkeä koska tämän avulla voidaan kirjoittaa python koodia ja käyttää sitä knimen sisällä,
     tässä tapauksessa kirjoitimme Google Firebase yhdeyden python koodiin jonka avulla saimme kosteus ja lämpötila datan.
   
-<details>
-<summary><b>Klikkaa noodin sisältämä koodi auki tästä</b></summary>
+    Koodi noden sisällä on seuraava:
 
 ```python
 import pandas as pd
@@ -59,8 +57,6 @@ output_table = pd.DataFrame({
 knio.output_tables[0] = knio.Table.from_pandas(output_table)
 print(output_table)
 ```
-</details>
-
 Koodi lukee "service_account_key_path" joka tarjoaa oikeukset kyseiseen Google Firebaseen. Koodi hakee tiedot "kerabit" kokoelmasta ja "zone1" dokumentista ja "sensor_data" kokoelmasta.
 
 Koodi hakee 3 viimeisintä dokumenttia ja muuttaa ne json muotoon ja lopuksi tulostaa ne.
@@ -103,9 +99,7 @@ Syy siihen miksi koodi hakee vain 3 viimeisintä dokumenttia johtuu siitä, ett�
 * Python Script node
     * Tämän Python nodel avulla lähetetään Express.js serverille POST kutsu joka lähettää taulukon tiedot JSON muodossa serverille jotta sitä voidaan käyttää käyttöliitymässä.
     
-<details>
-<summary><b>Klikkaa noodin sisältämä koodi auki tästä</b></summary>
-
+        Koodi noden sisällä on seuraava:
 ```python
 import pandas as pd
 import requests
@@ -161,9 +155,7 @@ for index, row in df.iterrows():
 
 # Knime node Outputti
 knio.output_tables[0] = knio.Table.from_pandas(df)
-```
-</details>
-
+   ````
 Koodissa käydään läpi taulukon tiedot ja tulokset lähetetään POST kustulla "url = 'http://localhost:3001/results'" osoitteseen joka on Express.js serverin osoite,
 
 tämä voi olla myös erilainen osoite kun ohjelma on tuotannossa.
@@ -174,7 +166,7 @@ tämä voi olla myös erilainen osoite kun ohjelma on tuotannossa.
 ## KNIME Suunitelman kustannukset
 KNIME Serverin kustannukset ovat seuraavat:
 
-![KNIMEPricingImage.PNG](Images/KNIME/KNIMEPricingImage.PNG)
+![KNIMEPricingImage.PNG](Images%2FKNIME%2FKNIMEPricingImage.PNG)
 
 Kuvassa on esitelty KNIME Serverin kustannukset, KNIME Serverin kustannukset ovat 0€ - 62,500€ riippuen siitä mitä ominaisuuksia halutaan käyttää.
 
@@ -190,9 +182,6 @@ Tämä suunitelma on tarkoitettu pienille projekteille ja se on halvin vaihtoeht
 
 Se tarkoittaa siis sitä että jos analyysissä menee aikaa 15 minuuttia niin se tule maksamaan 1.50€ per analyysi.
 
-## Knime Workflows
+# Knime Workflows
 Knime workflows löytyy täältä: [KNIME_workflows](KNIME_workflows)
 
-## [Edellinen kappale: Sovellusarkkitehtuuri ja käyttöliittymä](Käyttöliittymä.md)
-## [Seuraava kappale: Sovelluksen käyttöönotto](../README.md#otto)
-## [Takaisin etusivulle](../README.md)

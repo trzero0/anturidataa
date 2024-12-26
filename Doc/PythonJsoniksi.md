@@ -183,6 +183,8 @@ r_squared = reg_model.score(X_reg, y_reg)
 Lineaarisella regressiolla pyritään ennustamaan lämpötila kosteuden perusteella ja arvioidaan mallin tarkkuus R²-arvon avulla.
 
 
+
+
 ## Osa 8: **ARIMA Aikasarjamalli**
 
 ## 8. ARIMA Aikasarjamalli
@@ -212,6 +214,7 @@ for zone in zones.keys():
 ARIMA-mallilla ennustetaan lämpötilan muutoksia tuleville ajankohdille. Ennusteet ja mallin arviointiin liittyvät tiedot (AIC, BIC) tallennetaan.
 
 
+-
 ## Osa 9: **Kuukausittainen Sähköntuotanto**
 
 ## 9. Kuukausittainen Sähköntuotanto
@@ -318,6 +321,5 @@ Tässä tallennetaan kaikki analyysit ja tulokset JSON-muotoon, ja tiedostoon ki
 ![image](Images/Python/jsonEsim.png)
 
 ---
-
-[Data-analyysi Pythonilla](PythonAnalyysi.md).
-## [Takaisin etusivulle](../README.md)
+Linkki koko Koodiin
+https://github.com/Jukaiku/anturidatainno/tree/Backend_Python/AnturiData

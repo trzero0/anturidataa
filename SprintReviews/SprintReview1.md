@@ -1,7 +1,6 @@
 ## Sprint 1 Review
 
-Sprintissä käytetty aika: 45 tuntia
-
+Sprintissä käytetty aika: 44 tuntia
 Scrum master: -
 
 Ensimmäisessä sprintissä tavoitteena oli aloittaa projektinhallinta luomalla ryhmälle GitHub, Discord ja Trello. Lisäksi tavoitteena oli valita sopiva työkalu datan analysointiin. Ryhmämme päätyi valitsemaan tähän tarkoitukseen KNIME Analytics Platformin.
